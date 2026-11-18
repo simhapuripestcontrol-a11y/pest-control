@@ -200,6 +200,66 @@ function writeSitemapRobots404() {
   console.log(`✓ sitemap.xml (${urls.length} URLs), robots.txt, 404.html`);
 }
 
+// ---------- 4. Image optimisation ----------
+// Converts every PNG/JPG in dist to a resized WebP and points the site at the WebP files.
+// Originals are kept (used for social-share previews / og:image).
+const IMG_MAX = { 'spc-logo.jpg': 320, 'iso-badge.jpg': 480 };
+function walk(dir, out = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    e.isDirectory() ? walk(p, out) : out.push(p);
+  }
+  return out;
+}
+async function optimiseImages() {
+  let sharp;
+  try {
+    sharp = (await import('sharp')).default;
+  } catch {
+    console.warn('⚠ sharp not installed – image optimisation skipped');
+    return;
+  }
+  const files = walk(dist);
+  const images = files.filter((f) => /\.(png|jpe?g)$/i.test(f) && !f.includes(`${path.sep}assets${path.sep}`));
+  const converted = [];
+  let before = 0, after = 0;
+  for (const f of images) {
+    const out = f.replace(/\.(png|jpe?g)$/i, '.webp');
+    try {
+      const max = IMG_MAX[path.basename(f)] || 1280;
+      await sharp(f).resize({ width: max, withoutEnlargement: true }).webp({ quality: 72 }).toFile(out);
+      before += fs.statSync(f).size;
+      after += fs.statSync(out).size;
+      converted.push('/' + path.relative(dist, f).split(path.sep).join('/'));
+    } catch (err) {
+      console.warn('⚠ could not convert', f, err.message);
+    }
+  }
+  const toWebp = (u) => u.replace(/\.(png|jpe?g)$/i, '.webp');
+  // Rewrite references in the JS bundle and in src="" attributes of HTML pages (not og:image).
+  for (const f of files) {
+    if (f.endsWith('.js')) {
+      let s = fs.readFileSync(f, 'utf8');
+      for (const u of converted) {
+        for (const q of ['"', "'", '`']) s = s.split(q + u + q).join(q + toWebp(u) + q);
+      }
+      fs.writeFileSync(f, s);
+    } else if (f.endsWith('.html')) {
+      let s = fs.readFileSync(f, 'utf8');
+      for (const u of converted) s = s.split(`src="${u}"`).join(`src="${toWebp(u)}"`);
+      fs.writeFileSync(f, s);
+    }
+  }
+  // Preload the first hero image so it paints sooner.
+  const indexPath = path.join(dist, 'index.html');
+  fs.writeFileSync(
+    indexPath,
+    fs.readFileSync(indexPath, 'utf8').replace('</head>', '<link rel="preload" as="image" href="/images/hero_bg1.webp" fetchpriority="high">\n</head>')
+  );
+  console.log(`✓ optimised ${converted.length} images: ${(before / 1048576).toFixed(1)} MB → ${(after / 1048576).toFixed(1)} MB`);
+}
+
 await prerenderHome();
 writePages();
 writeSitemapRobots404();
+await optimiseImages();
