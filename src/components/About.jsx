@@ -11,7 +11,7 @@ const About = () => {
           <div className="lg:w-1/2 relative">
             <div className="bg-red-50 rounded-2xl p-4 absolute -top-8 -left-8 w-64 h-64 -z-10 hidden md:block"></div>
             <div className="relative splash-hover rounded-xl shadow-2xl overflow-hidden group w-full h-[500px]">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="/about-main.png" 
                 alt="Pest Control Equipment" 
                 className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-105"
@@ -19,7 +19,7 @@ const About = () => {
             </div>
             {/* Badge overlay */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 md:w-40 md:h-40 z-20 hover:scale-105 transition-transform duration-500 bg-white rounded-full p-2 shadow-2xl overflow-hidden flex items-center justify-center">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="/iso-badge.jpg" 
                 alt="ISO 9001:2015 Certified Company" 
                 className="w-[90%] h-[90%] object-contain"
