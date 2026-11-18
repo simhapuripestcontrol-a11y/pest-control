@@ -35,6 +35,7 @@ const Hero = () => {
               opacity: { duration: 1.5, ease: "easeInOut" },
               scale: { duration: 15, ease: "linear" }
             }}
+            alt="Simhapuri Pest Control technician providing pest control service in Nellore"
             className="absolute inset-0 w-full h-full object-cover"
           />
         </AnimatePresence>
@@ -52,7 +53,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2 bg-red-600/90 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold mb-6 shadow-[0_0_15px_rgba(220,38,38,0.5)] border border-red-500"
           >
             <ShieldCheck size={18} />
-            <span>PEST CONTROL NELLORE</span>
+            <span>PEST CONTROL NELLORE • VIJAYAWADA • ANDHRA PRADESH</span>
           </motion.div>
 
           <motion.h1 
@@ -61,7 +62,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-[1.1] tracking-tight drop-shadow-xl"
           >
-            Professional Pest Control Services in Nellore
+            Professional Pest Control Services in Nellore &amp; Andhra Pradesh
           </motion.h1>
 
           <motion.p 
