@@ -120,8 +120,8 @@ const Contact = () => {
 
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
-                      <input 
+                      <label htmlFor="cf-name" className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
+                      <input id="cf-name" 
                         name="name"
                         type="text" 
                         required
@@ -130,8 +130,8 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
-                      <input 
+                      <label htmlFor="cf-phone" className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                      <input id="cf-phone" 
                         name="phone"
                         type="tel" 
                         required
@@ -142,8 +142,8 @@ const Contact = () => {
                   </div>
 
                   <div className="mb-6">
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Service Required</label>
-                    <select 
+                    <label htmlFor="cf-service" className="block text-sm font-semibold text-gray-700 mb-2">Service Required</label>
+                    <select id="cf-service" 
                       name="service"
                       required
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-transparent transition-colors outline-none bg-white selection:bg-red-50"
@@ -159,8 +159,8 @@ const Contact = () => {
                   </div>
 
                   <div className="mb-8">
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Your Message / Address</label>
-                    <textarea 
+                    <label htmlFor="cf-message" className="block text-sm font-semibold text-gray-700 mb-2">Your Message / Address</label>
+                    <textarea id="cf-message" 
                       name="message"
                       rows="4" 
                       required
