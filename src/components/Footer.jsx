@@ -13,7 +13,7 @@ const Footer = () => {
               <img src="/spc-logo.jpg" alt="Simhapuri Pest Control" className="h-[80px] object-contain bg-white/90 px-3 py-1 rounded-lg" onError={(e) => { e.target.src = '/logo.jpg'; }} />
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Professional pest management services in Nellore and surrounding areas. ISO 9001:2015 Certified for quality and reliability.
+              Professional pest control services in Nellore, Vijayawada, Guntur, Tirupati and across Andhra Pradesh. ISO 9001:2015 Certified for quality and reliability.
             </p>
             <div className="flex gap-4">
               <a href="https://www.facebook.com/share/17E8BELuSw/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors">
@@ -53,9 +53,16 @@ const Footer = () => {
               <span className="absolute -bottom-2 left-0 w-1/2 h-1 bg-red-600"></span>
             </h4>
             <ul className="space-y-3 mt-4">
-              {['Termite Control', 'Cockroach Control', 'Rodent Control', 'Bed Bugs Control', 'Mosquito Control'].map((service) => (
+              {[
+                ['Termite Control', '/termite-control-nellore'],
+                ['Cockroach Control', '/cockroach-control-nellore'],
+                ['Rodent Control', '/rodent-control-nellore'],
+                ['Bed Bugs Control', '/bed-bug-control-nellore'],
+                ['Mosquito Control', '/mosquito-control-nellore'],
+                ['Commercial & AMC', '/commercial-pest-control-amc'],
+              ].map(([service, href]) => (
                 <li key={service}>
-                  <a href={service === 'Termite Control' ? '#termite-control' : '#services'} className="flex items-center hover:text-red-500 transition-colors">
+                  <a href={href} className="flex items-center hover:text-red-500 transition-colors">
                     <ChevronRight size={16} className="text-red-600 mr-2" />
                     {service}
                   </a>
@@ -73,7 +80,7 @@ const Footer = () => {
             <ul className="space-y-4 mt-4">
               <li className="flex items-start gap-4">
                 <Phone size={20} className="text-red-600 shrink-0 mt-1" />
-                <span>+91 8885914421</span>
+                <a href="tel:+918885914421" className="hover:text-red-500">+91 8885914421</a>
               </li>
               <li className="flex items-start gap-4">
                 <Mail size={20} className="text-red-600 shrink-0 mt-1" />
@@ -86,6 +93,27 @@ const Footer = () => {
             </ul>
           </div>
 
+        </div>
+
+        {/* Service Areas (internal links for SEO) */}
+        <div className="border-t border-gray-800 pt-8">
+          <h4 className="text-white font-bold text-lg mb-4">Pest Control Service Areas in Andhra Pradesh</h4>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            {[
+              ['Nellore', '/pest-control-nellore'],
+              ['Vijayawada', '/pest-control-vijayawada'],
+              ['Guntur', '/pest-control-guntur'],
+              ['Ongole', '/pest-control-ongole'],
+              ['Tirupati', '/pest-control-tirupati'],
+              ['Kavali', '/pest-control-kavali'],
+              ['Gudur', '/pest-control-gudur'],
+              ['All Andhra Pradesh', '/pest-control-andhra-pradesh'],
+            ].map(([city, href]) => (
+              <a key={city} href={href} className="hover:text-red-500 transition-colors">
+                Pest Control {city}
+              </a>
+            ))}
+          </div>
         </div>
 
         <div className="border-t border-gray-800 pt-8 mt-8 text-center md:flex justify-between items-center text-sm">
