@@ -87,7 +87,7 @@ const Services = () => {
               
               {/* Background Image of the Card */}
               <div className="absolute inset-0 z-0 splash-hover group">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={service.image} 
                   alt={service.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
