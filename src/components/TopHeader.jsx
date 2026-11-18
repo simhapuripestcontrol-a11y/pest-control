@@ -16,7 +16,7 @@ const TopHeader = () => {
           </a>
         </div>
         <div className="font-medium tracking-wide">
-          24/7 Pest Control Services in Nellore
+          24/7 Pest Control Services in Nellore, Vijayawada &amp; Andhra Pradesh
         </div>
       </div>
     </div>
