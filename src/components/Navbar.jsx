@@ -28,7 +28,7 @@ const Navbar = () => {
         <a href="#home" className="flex items-center gap-2 group">
           {/* White box so the logo is completely visible over the dark glass background */}
           <div className="bg-white px-2 py-1.5 rounded-lg shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-transform group-hover:scale-105">
-            <img src="/spc-logo.jpg" alt="Simhapuri Pest Control" className="h-[50px] md:h-[65px] object-contain" onError={(e) => { e.target.src = '/logo.jpg'; }} />
+            <img src="/spc-logo.jpg" alt="Simhapuri Pest Control" width="65" height="65" className="h-[50px] md:h-[65px] object-contain" onError={(e) => { e.target.src = '/logo.jpg'; }} />
           </div>
         </a>
 
@@ -50,7 +50,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className="md:hidden text-white" aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
