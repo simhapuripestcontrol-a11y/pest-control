@@ -45,7 +45,7 @@ const TermiteServices = () => {
               className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col group"
             >
               <div className="h-56 relative overflow-hidden">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={service.image} 
                   alt={service.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
