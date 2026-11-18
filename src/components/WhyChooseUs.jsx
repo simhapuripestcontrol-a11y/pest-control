@@ -79,7 +79,7 @@ const WhyChooseUs = () => {
                 transition={{ duration: 0.8 }}
                 className="absolute top-0 right-0 w-[80%] h-[80%] splash-hover rounded-[30px] shadow-xl overflow-hidden group z-10"
               >
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="/images/why-pest.png" 
                   alt="Pest View" 
                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
@@ -93,7 +93,7 @@ const WhyChooseUs = () => {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="absolute bottom-6 left-0 w-[60%] h-[75%] splash-hover rounded-[30px] shadow-[-10px_20px_40px_rgba(0,0,0,0.15)] border-[12px] border-white overflow-hidden group z-20 bg-white"
               >
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="/images/why-tech.png" 
                   alt="Technician Overlay" 
                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
