@@ -75,7 +75,7 @@ const AMCIndustries = () => {
               className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col group"
             >
               <div className="h-64 overflow-hidden relative">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={sector.image} 
                   alt={sector.title} 
                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
