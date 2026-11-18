@@ -22,7 +22,7 @@ const AMC = () => {
                 transition={{ duration: 0.8 }}
                 className="absolute top-0 right-0 w-[75%] h-[75%] splash-hover rounded-[30px] md:rounded-[40px] shadow-xl overflow-hidden group z-10"
               >
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="/images/amc-pest.png" 
                   alt="Pest Detail" 
                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
@@ -36,7 +36,7 @@ const AMC = () => {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="absolute bottom-0 left-0 w-[70%] h-[70%] splash-hover rounded-[30px] md:rounded-[40px] shadow-[-10px_20px_50px_rgba(0,0,0,0.2)] border-[10px] md:border-[16px] border-white overflow-hidden group z-20 bg-white"
               >
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="/images/amc-tech.png" 
                   alt="Pest Control Technician" 
                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
